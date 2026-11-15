@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by fitted implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><strong>Token Radar</strong></div>
+  <div class="topmeta" id="topmeta"></div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Pre-token protocols, ranked by fitted implied value</h1>
+      <p class="lede" id="lede"></p>
+    </div>
+    <dl class="stats" id="stats"></dl>
+  </section>
+  <section class="method" id="method"></section>
+  <section class="controls">
+    <label>Search
+      <input id="q" type="search" placeholder="Search the board" autocomplete="off">
+    </label>
+    <label>Category
+      <select id="cat"><option value="">All categories</option></select>
+    </label>
+    <label>Chain
+      <select id="chain"><option value="">All chains</option></select>
+    </label>
+    <label>TVL range
+      <select id="tvl">
+        <option value="">Any TVL</option>
+        <option value="big">At least $500M</option>
+        <option value="mid">$50M to $500M</option>
+        <option value="small">Below $50M</option>
+      </select>
+    </label>
+    <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+  </section>
+  <p class="count" id="count"></p>
+  <div class="tablewrap">
+    <table id="board">
+      <thead>
+        <tr>
+          <th data-sort="rank">Rank</th>
+          <th data-sort="name">Protocol</th>
+          <th data-sort="tvl_usd">TVL</th>
+          <th data-sort="change_7d">7d</th>
+          <th data-sort="age_days">Age</th>
+          <th data-sort="implied_value_usd">Implied value</th>
+          <th>Board</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>No protocol on the board matches this filter.</p>
+  </div>
+  <footer class="foot" id="foot"></footer>
+</main>
+<aside class="drawer" id="drawer" hidden>
+  <div class="drawer-head">
+    <span id="drawer-rank"></span>
+    <button id="drawer-close" type="button">Close</button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+</aside>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
